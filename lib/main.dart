@@ -39,6 +39,10 @@ class _UserFormState extends State<UserForm> {
   final _nameController = TextEditingController();
   final _usernameController = TextEditingController();
   final _aboutMeController = TextEditingController();
+  final _ageController = TextEditingController();
+  final _genderController = TextEditingController();
+  final _locationController = TextEditingController();
+  final _interestsController = TextEditingController();
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
@@ -79,6 +83,10 @@ class _UserFormState extends State<UserForm> {
     _nameController.dispose();
     _usernameController.dispose();
     _aboutMeController.dispose();
+    _ageController.dispose();
+    _genderController.dispose();
+    _locationController.dispose();
+    _interestsController.dispose();
     super.dispose();
   }
 
@@ -115,6 +123,30 @@ class _UserFormState extends State<UserForm> {
                     value == null || value.isEmpty
                         ? 'Tell us about yourself'
                         : null,
+          ),
+          TextFormField(
+            controller: _ageController,
+            decoration: const InputDecoration(labelText: 'Age'),
+            validator: (value) =>
+                value == null || value.isEmpty ? 'please enter your age' : null,
+          ),
+          TextFormField(
+            controller: _genderController,
+            decoration: const InputDecoration(labelText: 'Gender'),
+            validator: (value) =>
+                value == null || value.isEmpty ? 'please enter your gender' : null,
+          ),
+          TextFormField(
+            controller: _locationController,
+            decoration: const InputDecoration(labelText: 'Location'),
+            validator: (value) =>
+                value == null || value.isEmpty ? 'please enter your location' : null,
+          ),
+          TextFormField(
+            controller: _interestsController,
+            decoration: const InputDecoration(labelText: 'Interests'),
+            validator: (value) =>
+                value == null || value.isEmpty ? 'please enter your interests' : null,
           ),
           const SizedBox(height: 20),
           ElevatedButton(
