@@ -21,10 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'User Profile Form',
       home: Scaffold(
         appBar: AppBar(title: const Text('Create Profile')),
-        body: const Padding(
-          padding: EdgeInsets.all(16.0),
-          child: UserForm(),
-        ),
+        body: const Padding(padding: EdgeInsets.all(16.0), child: UserForm()),
       ),
     );
   }
@@ -49,6 +46,7 @@ class _UserFormState extends State<UserForm> {
         name: _nameController.text,
         username: _usernameController.text,
         aboutMe: _aboutMeController.text,
+        //Create Json file here?
       );
 
       // Debug print to console
@@ -59,18 +57,19 @@ class _UserFormState extends State<UserForm> {
       // Optional: Show confirmation dialog
       showDialog(
         context: context,
-        builder: (_) => AlertDialog(
-          title: const Text('Profile Created'),
-          content: Text(
-            'Welcome, ${user.name}!\nUsername: ${user.username}\nAbout: ${user.aboutMe}',
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('OK'),
+        builder:
+            (_) => AlertDialog(
+              title: const Text('Profile Created'),
+              content: Text(
+                'Welcome, ${user.name}!\nUsername: ${user.username}\nAbout: ${user.aboutMe}',
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('OK'),
+                ),
+              ],
             ),
-          ],
-        ),
       );
     }
   }
@@ -92,21 +91,30 @@ class _UserFormState extends State<UserForm> {
           TextFormField(
             controller: _nameController,
             decoration: const InputDecoration(labelText: 'Name'),
-            validator: (value) =>
-                value == null || value.isEmpty ? 'Please enter your name' : null,
+            validator:
+                (value) =>
+                    value == null || value.isEmpty
+                        ? 'Please enter your name'
+                        : null,
           ),
           TextFormField(
             controller: _usernameController,
             decoration: const InputDecoration(labelText: 'Username'),
-            validator: (value) =>
-                value == null || value.isEmpty ? 'Please enter a username' : null,
+            validator:
+                (value) =>
+                    value == null || value.isEmpty
+                        ? 'Please enter a username'
+                        : null,
           ),
           TextFormField(
             controller: _aboutMeController,
             decoration: const InputDecoration(labelText: 'About Me'),
             maxLines: 3,
-            validator: (value) =>
-                value == null || value.isEmpty ? 'Tell us about yourself' : null,
+            validator:
+                (value) =>
+                    value == null || value.isEmpty
+                        ? 'Tell us about yourself'
+                        : null,
           ),
           const SizedBox(height: 20),
           ElevatedButton(

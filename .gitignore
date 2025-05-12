@@ -46,3 +46,4 @@ app.*.map.json
 
 # Build directories
 node_modules
+.fake
