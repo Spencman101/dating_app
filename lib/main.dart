@@ -50,9 +50,9 @@ class _UserFormState extends State<UserForm> {
       );
 
       // Debug print to console
-      print('Name: ${user.name}');
-      print('Username: ${user.username}');
-      print('About Me: ${user.aboutMe}');
+      //print('Name: ${user.name}');
+      //print('Username: ${user.username}');
+      //print('About Me: ${user.aboutMe}');
 
       // Optional: Show confirmation dialog
       showDialog(
