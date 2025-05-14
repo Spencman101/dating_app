@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +20,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'User Profile Form',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          brightness: Brightness.dark, 
+          seedColor: Colors.deepPurple,),
+        textTheme: TextTheme(
+          displayLarge: const TextStyle(
+            fontSize: 38,
+            fontWeight: FontWeight.bold,
+            color: Colors.deepPurple),
+          titleLarge: GoogleFonts.nokora()
+      ),),
       home: Scaffold(
         appBar: AppBar(title: const Text('Create Profile')),
         body: const Padding(padding: EdgeInsets.all(16.0), child: UserForm()),
