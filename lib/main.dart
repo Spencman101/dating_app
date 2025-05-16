@@ -127,26 +127,38 @@ class _UserFormState extends State<UserForm> {
           TextFormField(
             controller: _ageController,
             decoration: const InputDecoration(labelText: 'Age'),
-            validator: (value) =>
-                value == null || value.isEmpty ? 'please enter your age' : null,
+            validator:
+                (value) =>
+                    value == null || value.isEmpty
+                        ? 'please enter your age'
+                        : null,
           ),
           TextFormField(
             controller: _genderController,
             decoration: const InputDecoration(labelText: 'Gender'),
-            validator: (value) =>
-                value == null || value.isEmpty ? 'please enter your gender' : null,
+            validator:
+                (value) =>
+                    value == null || value.isEmpty
+                        ? 'please enter your gender'
+                        : null,
           ),
           TextFormField(
             controller: _locationController,
             decoration: const InputDecoration(labelText: 'Location'),
-            validator: (value) =>
-                value == null || value.isEmpty ? 'please enter your location' : null,
+            validator:
+                (value) =>
+                    value == null || value.isEmpty
+                        ? 'please enter your location'
+                        : null,
           ),
           TextFormField(
             controller: _interestsController,
             decoration: const InputDecoration(labelText: 'Interests'),
-            validator: (value) =>
-                value == null || value.isEmpty ? 'please enter your interests' : null,
+            validator:
+                (value) =>
+                    value == null || value.isEmpty
+                        ? 'please enter your interests'
+                        : null,
           ),
           const SizedBox(height: 20),
           ElevatedButton(
