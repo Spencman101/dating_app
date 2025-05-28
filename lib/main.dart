@@ -22,15 +22,20 @@ class MyApp extends StatelessWidget {
       title: 'User Profile Form',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          brightness: Brightness.dark, 
-          seedColor: Colors.deepPurple,),
+          brightness: Brightness.light, 
+          seedColor: Color.fromARGB(255, 108, 79, 159),),
         textTheme: TextTheme(
           displayLarge: const TextStyle(
-            fontSize: 38,
+            fontSize: 30,
             fontWeight: FontWeight.bold,
-            color: Colors.deepPurple),
-          titleLarge: GoogleFonts.nokora()
-      ),),
+          ),
+          titleLarge: GoogleFonts.lato(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,),
+          bodyMedium: GoogleFonts.merriweather(),
+          displaySmall: GoogleFonts.pacifico(),
+          ),
+        ),
       home: Scaffold(
         appBar: AppBar(title: const Text('Create Profile')),
         body: const Padding(padding: EdgeInsets.all(16.0), child: UserForm()),
@@ -100,6 +105,11 @@ class _UserFormState extends State<UserForm> {
       key: _formKey,
       child: Column(
         children: [
+          Image.asset(
+            'lib/images/default-profile.jpg',
+            width: 150,
+            fit: BoxFit.cover
+          ),
           TextFormField(
             controller: _nameController,
             decoration: const InputDecoration(labelText: 'Name'),
