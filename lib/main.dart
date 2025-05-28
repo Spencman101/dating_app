@@ -77,12 +77,13 @@ class UserForm extends StatefulWidget {
 class _UserFormState extends State<UserForm> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
+  final _ageController = TextEditingController();
   final _genderController = TextEditingController();
   String? _selectedGender;
-  final _ageController = TextEditingController();
   final _aboutMeController = TextEditingController();
   final List<String> _interests = ["Arts", "Sports", "Technology", "Travel", "Food"];
   final List<String> _selectedInterests = [];
+  final _locationController = TextEditingController();
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
@@ -123,9 +124,13 @@ class _UserFormState extends State<UserForm> {
   @override
   void dispose() {
     _nameController.dispose();
+    _genderController.dispose();
     _ageController.dispose();
-    _aboutMeController.dispose();
+    _aboutMeController.dispose();  
+    _locationController.dispose();
+    _interestsController.dispose();
     _interests.clear();
+
     super.dispose();
   }
 
@@ -208,7 +213,13 @@ class _UserFormState extends State<UserForm> {
                         ? 'Tell us about yourself'
                         : null,
           ),
-          const SizedBox(height: 16),
+           TextFormField(
+            controller: _locationController,
+            decoration: const InputDecoration(labelText: 'Location'),
+            validator: (value) =>
+                value == null || value.isEmpty ? 'please enter your location' : null,
+          ),
+             const SizedBox(height: 16),
           Wrap(
             spacing: 8,
             children: _interests.map((interest) {
