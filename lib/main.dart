@@ -128,7 +128,6 @@ class _UserFormState extends State<UserForm> {
     _ageController.dispose();
     _aboutMeController.dispose();  
     _locationController.dispose();
-    _interestsController.dispose();
     _interests.clear();
 
     super.dispose();
@@ -213,13 +212,14 @@ class _UserFormState extends State<UserForm> {
                         ? 'Tell us about yourself'
                         : null,
           ),
-           TextFormField(
+          const SizedBox(height: 16),
+          TextFormField(
             controller: _locationController,
             decoration: const InputDecoration(labelText: 'Location'),
             validator: (value) =>
                 value == null || value.isEmpty ? 'please enter your location' : null,
           ),
-             const SizedBox(height: 16),
+          const SizedBox(height: 16),
           Wrap(
             spacing: 8,
             children: _interests.map((interest) {
