@@ -9,9 +9,23 @@ class User {
   String gender;
   String age;
   String aboutMe;
+  String location;
+  String interests;
   List interests;
 
-  User({required this.name, required this.gender, required this.age, required this.aboutMe, required this.interests});
+  User({required this.name, required this.username, required this.aboutMe, required this.age, required this.gender, required this.location, required this.interests});
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'username': username,
+      'aboutMe': aboutMe,
+      'age': age,
+      'gender': gender,
+      'location': location,
+      'interests': interests,
+    };
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -89,12 +103,19 @@ class _UserFormState extends State<UserForm> {
     if (_formKey.currentState!.validate()) {
       final user = User(
         name: _nameController.text,
-        gender: _genderController.text,
-        age: _ageController.text,
         aboutMe: _aboutMeController.text,
+        age: _ageController.text,
+        gender: _genderController.text,
+        location: _locationController.text,
+        interests: _interestsController.text,
         interests: _selectedInterests, 
         //Create Json file here?
       );
+  
+      // Convert user data to JSON
+      final userJson = user.toJson();
+      // Print JSON to console. change to send to server.
+      print('User JSON: $userJson');
 
       // Debug print to console
       //print('Name: ${user.name}');
