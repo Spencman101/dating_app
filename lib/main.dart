@@ -1,3 +1,4 @@
+import 'package:dating_app_project/lobby.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -98,6 +99,13 @@ class _UserFormState extends State<UserForm> {
   final List<String> _interests = ["Arts", "Sports", "Technology", "Travel", "Food"];
   final List<String> _selectedInterests = [];
   final _locationController = TextEditingController();
+
+  void _toLobby() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PlayerLoby()),
+    );
+  }
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
@@ -233,12 +241,15 @@ class _UserFormState extends State<UserForm> {
                         ? 'Tell us about yourself'
                         : null,
           ),
-          const SizedBox(height: 16),
+
           TextFormField(
             controller: _locationController,
             decoration: const InputDecoration(labelText: 'Location'),
-            validator: (value) =>
-                value == null || value.isEmpty ? 'please enter your location' : null,
+            validator:
+                (value) =>
+                    value == null || value.isEmpty
+                        ? 'please enter your location'
+                        : null,
           ),
           const SizedBox(height: 16),
           Wrap(
@@ -265,6 +276,10 @@ class _UserFormState extends State<UserForm> {
           ElevatedButton(
             onPressed: _submitForm,
             child: const Text('Create Profile'),
+          ),
+          ElevatedButton(
+            onPressed: _toLobby,
+            child: const Text('Go To Player Lobby'),
           ),
         ],
       ),
