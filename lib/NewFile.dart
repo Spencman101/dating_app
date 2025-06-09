@@ -1,9 +1,6 @@
+import 'package:dating_app_project/Home.dart';
 import 'package:dating_app_project/lobby.dart';
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const MyApp());
-}
 
 class User {
   String name;
@@ -13,7 +10,8 @@ class User {
   User({required this.name, required this.username, required this.aboutMe});
 }
 
-class MyApp extends StatelessWidget {
+class NewFile extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +74,8 @@ class _UserFormState extends State<UserForm> {
               ),
               actions: [
                 TextButton(
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () => Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => HomePage()),),
                   child: const Text('OK'),
                 ),
               ],
