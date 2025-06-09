@@ -1,7 +1,13 @@
 import 'package:dating_app_project/lobby.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -103,7 +109,7 @@ class _UserFormState extends State<UserForm> {
   void _toLobby() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => PlayerLoby()),
+      MaterialPageRoute(builder: (context) => PlayerLobby()),
     );
   }
 
