@@ -30,7 +30,6 @@ class User {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +100,7 @@ class _UserFormState extends State<UserForm> {
   final _locationController = TextEditingController();
 
   void _toLobby() {
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => PlayerLoby()),
     );
