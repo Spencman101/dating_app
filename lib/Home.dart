@@ -1,5 +1,6 @@
-import 'package:dating_app_project/Lobby.dart';
 import 'package:flutter/material.dart';
+import 'package:dating_app_project/lobby.dart';
+import 'package:dating_app_project/main.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -16,7 +17,7 @@ class HomePage extends StatelessWidget {
             children: [ ElevatedButton(
               onPressed:() => Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => PlayerLoby()),),
+      MaterialPageRoute(builder: (context) => PlayerLobby()),),
               child: const Text('To Lobby'),
               ),
             ElevatedButton(
