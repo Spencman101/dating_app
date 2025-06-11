@@ -247,7 +247,7 @@ class _UserFormState extends State<UserForm> {
                         ? 'Tell us about yourself'
                         : null,
           ),
-
+          const SizedBox(height: 16),
           TextFormField(
             controller: _locationController,
             decoration: const InputDecoration(labelText: 'Location'),
@@ -283,6 +283,7 @@ class _UserFormState extends State<UserForm> {
             onPressed: _submitForm,
             child: const Text('Create Profile'),
           ),
+          const SizedBox(height: 16),
           ElevatedButton(
             onPressed: _toLobby,
             child: const Text('Go To Player Lobby'),
