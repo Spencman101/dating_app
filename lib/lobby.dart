@@ -1,4 +1,5 @@
 
+import 'package:dating_app_project/Home.dart';
 import 'package:flutter/material.dart';
 
 class PlayerLobby extends StatelessWidget {
@@ -12,9 +13,11 @@ class PlayerLobby extends StatelessWidget {
           padding: EdgeInsets.all(16.0),
           child: Center(
             child: ElevatedButton(
-              child: const Text('Go Back'),
+              child: const Text('Return to Home'),
               onPressed: () {
-                Navigator.pop(context);
+               Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),);
               },
             ),
           ),
