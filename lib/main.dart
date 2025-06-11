@@ -1,4 +1,6 @@
 import 'package:dating_app_project/lobby.dart';
+import 'package:dating_app_project/Home.dart';
+import 'package:dating_app_project/NewFile.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -9,6 +11,36 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
+}
+
+class signIn{
+@override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Homepage',
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Sign In')),
+        body: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            children: [ ElevatedButton(
+              onPressed:() => Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),),
+              child: const Text('Sign in'),
+              ),
+            ElevatedButton(
+              child: const Text('New File'),
+              onPressed: () { Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => MyApp()),);}
+          ),
+            ]
+      ),
+    ),
+    ),
+    );
+  }
 }
 
 class User {
