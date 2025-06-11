@@ -11,7 +11,8 @@ class User {
 }
 
 class NewFile extends StatelessWidget {
-  const MyApp({super.key});
+  const NewFile({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,7 @@ class _UserFormState extends State<UserForm> {
   void _toLobby() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => PlayerLoby()),
+      MaterialPageRoute(builder: (context) => PlayerLobby()),
     );
   }
 

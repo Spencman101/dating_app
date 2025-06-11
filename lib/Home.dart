@@ -2,6 +2,8 @@ import 'package:dating_app_project/Lobby.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,7 +23,7 @@ class HomePage extends StatelessWidget {
               child: const Text('Sign Out'),
               onPressed: () => Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => Main()),),
+      MaterialPageRoute(builder: (context) => main()),),
           ),
             ]
       ),
