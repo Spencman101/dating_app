@@ -13,32 +13,38 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-class signIn{
+class MyApp extends StatelessWidget{
+  const MyApp({super.key});
 @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Homepage',
-      home: Scaffold(
+    return MaterialApp( home: const SignIn(),);}}
+
+class SignIn extends StatelessWidget{
+  const SignIn({super.key});
+@override
+  Widget build(BuildContext context) {
+      return( Scaffold(
         appBar: AppBar(title: const Text('Sign In')),
         body: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(
             children: [ ElevatedButton(
+              child: const Text('Sign in'),
               onPressed:() => Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => HomePage()),),
-              child: const Text('Sign in'),
               ),
             ElevatedButton(
               child: const Text('New File'),
-              onPressed: () { Navigator.pushReplacement(
+              onPressed: () => 
+               Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => MyApp()),);}
+      MaterialPageRoute(builder: (context) => NewFile()),),
           ),
             ]
       ),
     ),
-    ),
+    )
     );
   }
 }
@@ -67,8 +73,8 @@ class User {
   }
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class NewFile extends StatelessWidget {
+  const NewFile({super.key});
 
 
   @override
