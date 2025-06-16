@@ -1,6 +1,5 @@
 import 'package:dating_app_project/lobby.dart';
 import 'package:dating_app_project/Home.dart';
-import 'package:dating_app_project/NewFile.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
