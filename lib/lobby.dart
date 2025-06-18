@@ -8,6 +8,7 @@ class PlayerLobby extends StatelessWidget {
   Future<List<Map<String, dynamic>>> getSimilarUsers() async {
     final currentUser = 'WxTzBvWCQlMMVYmGpVwY';
     final currentUserDoc = await FirebaseFirestore.instance.collection('users').doc(currentUser).get();
+
     final List<dynamic> interests = currentUserDoc['interests'];
 
     final similarQuery = await FirebaseFirestore.instance
@@ -36,11 +37,19 @@ class PlayerLobby extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             }
 
-            if (!snapshot.hasData || snapshot.data!.isEmpty) {
-              return const Center(child: Text('No similar users found.', ));
+            if (snapshot.hasError) {
+              return Center(child: Text('Error: ${snapshot.error}'));
+            }
+
+            if (!snapshot.hasData) {
+              return const Center(child: Text('No data returned.'));
             }
 
             final matches = snapshot.data!;
+            if (matches.isEmpty) {
+              return const Center(child: Text('No similar users found.'));
+            }
+
             return Column(
               children: [
                 Expanded(
