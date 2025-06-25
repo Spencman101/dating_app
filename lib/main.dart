@@ -187,9 +187,10 @@ class _UserFormState extends State<UserForm> {
                 TextButton(
                   child: const Text('Go To Homepage'),
                   onPressed: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
-                  }),
-              ],
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()),);
+                  }
+            )
+            ], //actions
             ),
       );
     }
