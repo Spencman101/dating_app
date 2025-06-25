@@ -1,4 +1,4 @@
-import 'package:dating_app_project/Home.dart';
+
 import 'package:dating_app_project/lobby.dart';
 import 'package:flutter/material.dart';
 
@@ -128,23 +128,6 @@ class _UserFormState extends State<UserForm> {
       //print('About Me: ${user.aboutMe}');
 
       // Optional: Show confirmation dialog
-      showDialog(
-        context: context,
-        builder:
-            (_) => AlertDialog(
-              title: const Text('Profile Created'),
-              content: Text(
-                'Welcome, ${user.name}!\nage: ${user.age}\nAbout: ${user.aboutMe}\nInterests: ${user.interests}',
-              ),
-              actions: [
-                TextButton(child: const Text('Home'),
-              onPressed: () => Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage()),),
-                ),
-              ],
-            ),
-      );
     }
   }
 

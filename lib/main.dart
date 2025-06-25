@@ -185,9 +185,10 @@ class _UserFormState extends State<UserForm> {
               ),
               actions: [
                 TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text('OK'),
-                ),
+                  child: const Text('Go To Homepage'),
+                  onPressed: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
+                  }),
               ],
             ),
       );
