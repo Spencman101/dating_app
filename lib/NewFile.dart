@@ -1,3 +1,4 @@
+
 import 'package:dating_app_project/lobby.dart';
 import 'package:flutter/material.dart';
 
@@ -25,8 +26,8 @@ class User {
   }
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class NewFile extends StatelessWidget {
+  const NewFile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -127,22 +128,6 @@ class _UserFormState extends State<UserForm> {
       //print('About Me: ${user.aboutMe}');
 
       // Optional: Show confirmation dialog
-      showDialog(
-        context: context,
-        builder:
-            (_) => AlertDialog(
-              title: const Text('Profile Created'),
-              content: Text(
-                'Welcome, ${user.name}!\nage: ${user.age}\nAbout: ${user.aboutMe}\nInterests: ${user.interests}',
-              ),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text('OK'),
-                ),
-              ],
-            ),
-      );
     }
   }
 
