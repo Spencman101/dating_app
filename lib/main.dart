@@ -175,10 +175,10 @@ class _UserFormState extends State<UserForm> {
       //print('About Me: ${user.aboutMe}');
 
       // Optional: Show confirmation dialog
-      showDialog(
+      
+      showDialog (
         context: context,
-        builder:
-            (_) => AlertDialog(
+        builder:(BuildContext dialog) => AlertDialog(
               title: const Text('Profile Created'),
               content: Text(
                 'Welcome, ${user.name}!\nage: ${user.age}\nAbout: ${user.aboutMe}\nInterests: ${user.interests}',
@@ -186,7 +186,8 @@ class _UserFormState extends State<UserForm> {
               actions: [
                 TextButton(
                   child: const Text('Go To Homepage'),
-                  onPressed: () {
+                  onPressed:  () {
+                    Navigator.pop(dialog);
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()),);
                   }
             )
