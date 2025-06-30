@@ -32,6 +32,14 @@ class SignIn extends StatelessWidget{
               onPressed:() => Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => HomePage()),),
+      style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xFFB2675E),
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            textStyle: TextStyle(fontWeight: FontWeight.bold),
+          ),
               ),
             ElevatedButton(
               child: const Text('New File'),
@@ -39,6 +47,14 @@ class SignIn extends StatelessWidget{
                Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => NewFile()),),
+      style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xFFB2675E),
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            textStyle: TextStyle(fontWeight: FontWeight.bold),
+          ),
           ),
             ]
       ),
@@ -189,7 +205,15 @@ class _UserFormState extends State<UserForm> {
                   onPressed:  () {
                     Navigator.pop(dialog);
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()),);
-                  }
+                  },
+           style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xFFB2675E),
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            textStyle: TextStyle(fontWeight: FontWeight.bold),
+          ),
             )
             ], //actions
             ),

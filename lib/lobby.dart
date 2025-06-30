@@ -73,6 +73,14 @@ class PlayerLobby extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => HomePage()),);
                   },
+                  style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xFFB2675E),
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            textStyle: TextStyle(fontWeight: FontWeight.bold),
+          ),
                 ),
               ),
             ],

@@ -19,12 +19,28 @@ class HomePage extends StatelessWidget {
       context,
       MaterialPageRoute(builder: (context) => PlayerLobby()),),
               child: const Text('To Lobby'),
+              style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xFFB2675E),
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            textStyle: TextStyle(fontWeight: FontWeight.bold),
+          ),
               ),
             ElevatedButton(
               child: const Text('Sign Out'),
               onPressed: () => Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => MyApp()),),
+      style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xFFB2675E),
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            textStyle: TextStyle(fontWeight: FontWeight.bold),
+          ),
           ),
             ]
       ),
