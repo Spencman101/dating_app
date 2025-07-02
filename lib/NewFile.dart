@@ -113,9 +113,9 @@ class _UserFormState extends State<UserForm> {
       );
   
       // Convert user data to JSON
-      final userJson = user.toJson();
+      //final userJson = user.toJson();
       // Print JSON to console. change to send to server.
-      print('User JSON: $userJson');
+      //print('User JSON: $userJson');
 
       // Debug print to console
       //print('Name: ${user.name}');
