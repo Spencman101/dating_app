@@ -67,7 +67,6 @@ class PlayerLobby extends StatelessWidget {
                 ),
               Center(
                 child: ElevatedButton(
-                  child: const Text('Return to Home'),
                   onPressed: () {
                   Navigator.pushReplacement(
               context,
@@ -81,6 +80,7 @@ class PlayerLobby extends StatelessWidget {
             ),
             textStyle: TextStyle(fontWeight: FontWeight.bold),
           ),
+          child: const Text('Return to Home')
                 ),
               ),
             ],

@@ -28,7 +28,6 @@ class SignIn extends StatelessWidget{
           padding: EdgeInsets.all(16.0),
           child: Column(
             children: [ ElevatedButton(
-              child: const Text('Sign in'),
               onPressed:() => Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => HomePage()),),
@@ -40,9 +39,9 @@ class SignIn extends StatelessWidget{
             ),
             textStyle: TextStyle(fontWeight: FontWeight.bold),
           ),
+          child: const Text('Sign in'),
               ),
             ElevatedButton(
-              child: const Text('New File'),
               onPressed: () => 
                Navigator.pushReplacement(
       context,
@@ -55,6 +54,7 @@ class SignIn extends StatelessWidget{
             ),
             textStyle: TextStyle(fontWeight: FontWeight.bold),
           ),
+          child: const Text('New File'),
           ),
             ]
       ),

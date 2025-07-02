@@ -18,7 +18,6 @@ class HomePage extends StatelessWidget {
               onPressed:() => Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => PlayerLobby()),),
-              child: const Text('To Lobby'),
               style: ElevatedButton.styleFrom(
             backgroundColor: Color(0xFFB2675E),
             foregroundColor: Colors.white,
@@ -27,13 +26,13 @@ class HomePage extends StatelessWidget {
             ),
             textStyle: TextStyle(fontWeight: FontWeight.bold),
           ),
+          child: const Text('To Lobby'),
               ),
             ElevatedButton(
-              child: const Text('Sign Out'),
               onPressed: () => Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => MyApp()),),
-      style: ElevatedButton.styleFrom(
+              context,
+               MaterialPageRoute(builder: (context) => MyApp()),),
+               style: ElevatedButton.styleFrom(
             backgroundColor: Color(0xFFB2675E),
             foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(
@@ -41,6 +40,7 @@ class HomePage extends StatelessWidget {
             ),
             textStyle: TextStyle(fontWeight: FontWeight.bold),
           ),
+          child: const Text('Sign Out'),
           ),
             ]
       ),

@@ -133,7 +133,6 @@ class _UserFormState extends State<UserForm> {
               ),
               actions: [
                 TextButton(
-                  child: const Text('Go To Homepage'),
                   onPressed:  () {
                     Navigator.pop(dialog);
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()),);
@@ -146,6 +145,7 @@ class _UserFormState extends State<UserForm> {
             ),
             textStyle: TextStyle(fontWeight: FontWeight.bold),
           ),
+          child: const Text('Go To Homepage'),
             )
             ], //actions
             ),
