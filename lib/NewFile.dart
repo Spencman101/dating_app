@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:dating_app_project/Home.dart';
 
 class User {
   String name;
@@ -26,6 +28,7 @@ class User {
 
 class NewFile extends StatelessWidget {
   const NewFile({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -95,6 +98,7 @@ class _UserFormState extends State<UserForm> {
   final List<String> _selectedInterests = [];
   final _locationController = TextEditingController();
 
+
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
       final user = User(
@@ -119,6 +123,33 @@ class _UserFormState extends State<UserForm> {
       //print('About Me: ${user.aboutMe}');
 
       // Optional: Show confirmation dialog
+      
+      showDialog (
+        context: context,
+        builder:(BuildContext dialog) => AlertDialog(
+              title: const Text('Profile Created'),
+              content: Text(
+                'Welcome, ${user.name}!\nage: ${user.age}\nAbout: ${user.aboutMe}\nInterests: ${user.interests}',
+              ),
+              actions: [
+                TextButton(
+                  child: const Text('Go To Homepage'),
+                  onPressed:  () {
+                    Navigator.pop(dialog);
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()),);
+                  },
+           style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xFFB2675E),
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            textStyle: TextStyle(fontWeight: FontWeight.bold),
+          ),
+            )
+            ], //actions
+            ),
+      );
     }
   }
 
@@ -136,120 +167,122 @@ class _UserFormState extends State<UserForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          FadeInImage.assetNetwork(
-            placeholder: 'lib/images/loading.gif', 
-            image: 'lib/images/default-profile.png',
-            width: 150,
-            fit: BoxFit.cover
-          ),
-          const SizedBox(height: 16),
-          TextFormField(
-            controller: _nameController,
-            decoration: const InputDecoration(labelText: 'Name'),
-            validator:
-                (value) =>
-                    value == null || value.isEmpty
-                        ? 'Please enter your name'
-                        : null,
-          ),
-          const SizedBox(height: 16),
-           Row(
-            children: [
-              Row(
-                children: [
-                  Radio<String>(
-                    value: 'Male',
-                    groupValue: _selectedGender,
-                    onChanged: (value) {
-                      setState(() {
-                        _selectedGender = value!;
-                      });
-                    },
-                    activeColor: Theme.of(context).primaryColor,
-                  ),
-                  Text('Male'),
-                ],
-              ),
-              SizedBox(width: 24),
-              Row(
-                children: [
-                  Radio<String>(
-                    value: 'Female',
-                    groupValue: _selectedGender,
-                    onChanged: (value) {
-                      setState(() {
-                        _selectedGender = value!;
-                      });
-                    },
-                    activeColor: Theme.of(context).primaryColor,
-                  ),
-                  Text('Female'),
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          TextFormField(
-            controller: _ageController,
-            decoration: const InputDecoration(labelText: 'Age'),
-            validator:
-                (value) =>
-                    value == null || value.isEmpty
-                        ? 'Please enter an age'
-                        : null,
-          ),
-          const SizedBox(height: 16),
-          TextFormField(
-            controller: _aboutMeController,
-            decoration: const InputDecoration(labelText: 'About Me'),
-            maxLines: 3,
-            validator:
-                (value) =>
-                    value == null || value.isEmpty
-                        ? 'Tell us about yourself'
-                        : null,
-          ),
+    return SingleChildScrollView(
+      child: Form(
+        key: _formKey,
+        child: Column(
+          children: [
+            FadeInImage.assetNetwork(
+              placeholder: 'lib/images/loading.gif', 
+              image: 'lib/images/default-profile.png',
+              width: 150,
+              fit: BoxFit.cover
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _nameController,
+              decoration: const InputDecoration(labelText: 'Name'),
+              validator:
+                  (value) =>
+                      value == null || value.isEmpty
+                          ? 'Please enter your name'
+                          : null,
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Row(
+                  children: [
+                    Radio<String>(
+                      value: 'Male',
+                      groupValue: _selectedGender,
+                      onChanged: (value) {
+                        setState(() {
+                          _selectedGender = value!;
+                        });
+                      },
+                      activeColor: Theme.of(context).primaryColor,
+                    ),
+                    Text('Male'),
+                  ],
+                ),
+                SizedBox(width: 24),
+                Row(
+                  children: [
+                    Radio<String>(
+                      value: 'Female',
+                      groupValue: _selectedGender,
+                      onChanged: (value) {
+                        setState(() {
+                          _selectedGender = value!;
+                        });
+                      },
+                      activeColor: Theme.of(context).primaryColor,
+                    ),
+                    Text('Female'),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _ageController,
+              decoration: const InputDecoration(labelText: 'Age'),
+              validator:
+                  (value) =>
+                      value == null || value.isEmpty
+                          ? 'Please enter an age'
+                          : null,
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _aboutMeController,
+              decoration: const InputDecoration(labelText: 'About Me'),
+              maxLines: 3,
+              validator:
+                  (value) =>
+                      value == null || value.isEmpty
+                          ? 'Tell us about yourself'
+                          : null,
+            ),
 
-          TextFormField(
-            controller: _locationController,
-            decoration: const InputDecoration(labelText: 'Location'),
-            validator:
-                (value) =>
-                    value == null || value.isEmpty
-                        ? 'please enter your location'
-                        : null,
-          ),
-          const SizedBox(height: 16),
-          Wrap(
-            spacing: 8,
-            children: _interests.map((interest) {
-              final isSelected = _selectedInterests.contains(interest);
-              return FilterChip(
-                label: Text(interest),
-                selectedColor: Color(0xFFB2675E),
-                selected: isSelected,
-                onSelected: (selected) {
-                  setState(() {
-                    if (selected) {
-                      _selectedInterests.add(interest);
-                    } else {
-                      _selectedInterests.remove(interest);
-                    }
-                  });
-                },
-              );
-            }).toList(),
-          ),
-          const SizedBox(height: 25),
-          ElevatedButton(
-            onPressed: _submitForm,
-            child: const Text('Create Profile'),
-          ),
-        ],
+            TextFormField(
+              controller: _locationController,
+              decoration: const InputDecoration(labelText: 'Location'),
+              validator:
+                  (value) =>
+                      value == null || value.isEmpty
+                          ? 'please enter your location'
+                          : null,
+            ),
+            const SizedBox(height: 16),
+            Wrap(
+              spacing: 8,
+              children: _interests.map((interest) {
+                final isSelected = _selectedInterests.contains(interest);
+                return FilterChip(
+                  label: Text(interest),
+                  selectedColor: Color(0xFFB2675E),
+                  selected: isSelected,
+                  onSelected: (selected) {
+                    setState(() {
+                      if (selected) {
+                        _selectedInterests.add(interest);
+                      } else {
+                        _selectedInterests.remove(interest);
+                      }
+                    });
+                  },
+                );
+              }).toList(),
+            ),
+            const SizedBox(height: 25),
+            ElevatedButton(
+              onPressed: _submitForm,
+              child: const Text('Create Profile'),
+            ),
+          ],
+        ),
       ),
     );
   }
