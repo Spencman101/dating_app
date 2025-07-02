@@ -1,4 +1,3 @@
-import 'package:dating_app_project/lobby.dart';
 import 'package:dating_app_project/Home.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -160,12 +159,6 @@ class _UserFormState extends State<UserForm> {
   final List<String> _selectedInterests = [];
   final _locationController = TextEditingController();
 
-  void _toLobby() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => PlayerLobby()),
-    );
-  }
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
@@ -348,10 +341,6 @@ class _UserFormState extends State<UserForm> {
             ElevatedButton(
               onPressed: _submitForm,
               child: const Text('Create Profile'),
-            ),
-            ElevatedButton(
-              onPressed: _toLobby,
-              child: const Text('Go To Player Lobby'),
             ),
           ],
         ),
